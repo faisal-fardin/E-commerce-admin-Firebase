@@ -1,6 +1,7 @@
 import 'package:adminapps/pages/view_product_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/add_new_category.dart';
 import '../pages/new_product_screen.dart';
 
 class DashboardItem {
@@ -18,7 +19,9 @@ class DashboardItem {
 
     DashboardItem(icon: Icons.add, name: "Add Product", route: NewProductScreen.routeName,),
 
-    DashboardItem(icon: Icons.add, name: "Add Product", route: ViewProductScreen.routeName,),
+    DashboardItem(icon: Icons.list, name: "View Product", route: ViewProductScreen.routeName,),
+
+    DashboardItem(icon: Icons.category, name: "Category", route: AddNewCategory.routeName,),
 
   ];
 }
