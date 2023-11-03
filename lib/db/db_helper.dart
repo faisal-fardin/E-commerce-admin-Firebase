@@ -1,6 +1,7 @@
 
 
 import 'package:adminapps/models/category_models.dart';
+import 'package:adminapps/models/product_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DBHelper{
@@ -9,6 +10,7 @@ class DBHelper{
 
  static const String collectionAdmins = 'Admins';
  static const String collectionCategory= 'Categories';
+ static const String collectionProduct= 'Product';
 
 
  static Future<bool> isAdmin(String uid) async {
@@ -21,6 +23,13 @@ class DBHelper{
    category.id = doc.id;
    return doc.set(category.toJson());
   }
+
+
+ static Future<void> addProduct(ProductModel productModel) {
+  final doc  = _db.collection(collectionProduct).doc();
+  productModel.id = doc.id;
+  return doc.set(productModel.toJson());
+ }
 
 
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllCategory() =>
