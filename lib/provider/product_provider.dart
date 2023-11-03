@@ -16,7 +16,7 @@ class ProductProvider extends ChangeNotifier{
   getAllCategories(){
     DBHelper.getAllCategory().listen((snapshot) {
       categoryList = List.generate(snapshot.docs.length, (index) =>
-          CategoryModels.fromMap(snapshot.docs[index].data()
+          CategoryModels.fromJson(snapshot.docs[index].data()
           ));
       notifyListeners();
     });

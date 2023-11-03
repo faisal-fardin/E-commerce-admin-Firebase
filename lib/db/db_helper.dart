@@ -19,7 +19,7 @@ class DBHelper{
   static Future<void> addCategory(CategoryModels category) {
    final doc  = _db.collection(collectionCategory).doc();
    category.id = doc.id;
-   return doc.set(category.toMap());
+   return doc.set(category.toJson());
   }
 
 

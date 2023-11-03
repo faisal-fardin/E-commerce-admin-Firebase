@@ -7,14 +7,14 @@ class CategoryModels {
     required this.name,
   });
 
-  Map<String, dynamic> toMap(){
+  Map<String, dynamic> toJson(){
     return{
       'id'    :id,
       'name'  :name,
     };
   }
 
-  factory CategoryModels.fromMap(Map<String, dynamic> map) => CategoryModels(
+  factory CategoryModels.fromJson(Map<String, dynamic> map) => CategoryModels(
     id: map['id'],
     name:  map['name'],
   );
