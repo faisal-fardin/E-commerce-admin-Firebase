@@ -2,6 +2,8 @@ import 'package:adminapps/pages/add_new_category.dart';
 import 'package:adminapps/pages/dashboard_screen.dart';
 import 'package:adminapps/pages/launcher_screen.dart';
 import 'package:adminapps/pages/logIn_screen.dart';
+import 'package:adminapps/pages/new_product_screen.dart';
+import 'package:adminapps/pages/view_product_screen.dart';
 import 'package:adminapps/provider/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
         LogInScreen.routeName: (_) => const LogInScreen(),
         DashboardScreen.routeName: (_) => const DashboardScreen(),
         AddNewCategory.routeName: (_) => const AddNewCategory(),
+        NewProductScreen.routeName: (_) => const NewProductScreen(),
+        ViewProductScreen.routeName: (_) => const ViewProductScreen(),
       },
     );
   }
