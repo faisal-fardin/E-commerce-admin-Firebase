@@ -27,8 +27,8 @@ class _ViewProductScreenState extends State<ViewProductScreen> {
             final product = provider.productList[index];
             return ListTile(
               onTap: () => Navigator.pushNamed(context, ProductDetailsPages.routeName,arguments: product.id),
-              title: Text(product.name),
-              subtitle: Text('Stock${product.stock}'),
+              title: Text(product.name,style: const TextStyle(fontSize: 20),),
+              subtitle: Text('Stock : ${product.stock}',style: const TextStyle(fontSize: 18), ),
               leading: SizedBox(
                 width: 100,
                 height: 100,

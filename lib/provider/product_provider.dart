@@ -39,6 +39,21 @@ class ProductProvider extends ChangeNotifier{
     });
   }
 
+
+  ProductModel getProductByid(String id){
+    return productList.firstWhere((element) => element.id == id);
+  }
+
+  Future<void> updateProductField(String id, String field, dynamic value){
+    return DBHelper.updateProductField(id, {field : value});
+  }
+
+
+
+  num priceAfterDiscount(num price , int discount){
+    return price - (price * discount ~/ 100);
+  }
+
   Future<String> uploadImage(String path) async{
     final imageName= 'Image_${DateTime.now().millisecondsSinceEpoch}';
     final photoRef = FirebaseStorage.instance.ref()

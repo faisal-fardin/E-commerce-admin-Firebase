@@ -39,4 +39,11 @@ class DBHelper{
      _db.collection(collectionProduct).snapshots();
 
 
+ static Future<void> updateProductField(String id, Map<String,dynamic> map){
+  return _db.collection(collectionProduct)
+      .doc(id)
+      .update(map);
+
+ }
+
 }
