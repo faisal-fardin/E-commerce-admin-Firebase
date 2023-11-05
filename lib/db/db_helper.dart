@@ -34,4 +34,9 @@ class DBHelper{
 
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllCategory() =>
       _db.collection(collectionCategory).orderBy('name') .snapshots();
+
+ static Stream<QuerySnapshot<Map<String, dynamic>>> getAllProduct() =>
+     _db.collection(collectionProduct).snapshots();
+
+
 }

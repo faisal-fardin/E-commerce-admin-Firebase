@@ -3,6 +3,7 @@ import 'package:adminapps/pages/dashboard_screen.dart';
 import 'package:adminapps/pages/launcher_screen.dart';
 import 'package:adminapps/pages/logIn_screen.dart';
 import 'package:adminapps/pages/new_product_screen.dart';
+import 'package:adminapps/pages/product_details_pages.dart';
 import 'package:adminapps/pages/view_product_screen.dart';
 import 'package:adminapps/provider/product_provider.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         AddNewCategory.routeName: (_) => const AddNewCategory(),
         NewProductScreen.routeName: (_) => const NewProductScreen(),
         ViewProductScreen.routeName: (_) => const ViewProductScreen(),
+        ProductDetailsPages.routeName: (_) => const ProductDetailsPages(),
       },
     );
   }

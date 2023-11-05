@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-
 import '../style/style_file.dart';
 
 class NewProductScreen extends StatefulWidget {
@@ -249,6 +248,7 @@ class _NewProductScreenState extends State<NewProductScreen> {
       });
     }
   }
+
 
   void _resetFields() {
     setState(() {
