@@ -29,6 +29,13 @@ class _ViewProductScreenState extends State<ViewProductScreen> {
               onTap: () => Navigator.pushNamed(context, ProductDetailsPages.routeName,arguments: product.id),
               title: Text(product.name,style: const TextStyle(fontSize: 20),),
               subtitle: Text('Stock : ${product.stock}',style: const TextStyle(fontSize: 18), ),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.start, color: Colors.amber, ),
+                  Text(product.avgRating.toStringAsFixed(1), style: const TextStyle(fontSize: 20),),
+                ],
+              ),
               leading: SizedBox(
                 width: 100,
                 height: 100,
@@ -39,6 +46,7 @@ class _ViewProductScreenState extends State<ViewProductScreen> {
                   placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
                   errorWidget: (context, url, error) => const Center(child: Icon(Icons.error),),
                 ),
+
               ),
             );
           },

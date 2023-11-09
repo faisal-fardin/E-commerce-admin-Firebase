@@ -38,6 +38,8 @@ class _ProductDetailsPagesState extends State<ProductDetailsPages> {
       body: ListView(
         children: [
           CachedNetworkImage(
+            width: 500,
+            height: 300,
             fadeInDuration: const Duration(seconds: 2),
             fadeInCurve: Curves.easeInOut,
             imageUrl: productModel.imageUrl,
@@ -49,15 +51,25 @@ class _ProductDetailsPagesState extends State<ProductDetailsPages> {
             ),
           ),
           ListTile(
-            trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.edit,
-                )),
             title: Text(productModel.category.name),
             subtitle: Text(productModel.description ?? 'Description not found'),
           ),
+          const Divider(),
           ListTile(
+            trailing: IconButton(
+                onPressed: () {
+                  showSingleTextInputDialog(
+                    context: context,
+                    title: 'Update Price',
+                    onSave: ((value) {
+                      provider.updateProductField(
+                          id, 'price', int.parse(value));
+                    }),
+                  );
+                },
+                icon: const Icon(
+                  Icons.edit,
+                )),
             title: Text(
               '$currencySymbol ${productModel.price}',
               style: const TextStyle(fontSize: 22),
@@ -67,6 +79,7 @@ class _ProductDetailsPagesState extends State<ProductDetailsPages> {
               style: const TextStyle(fontSize: 20),
             ),
           ),
+          const Divider(),
           ListTile(
             trailing: IconButton(
                 onPressed: () {
@@ -74,7 +87,8 @@ class _ProductDetailsPagesState extends State<ProductDetailsPages> {
                     context: context,
                     title: 'Update Discount',
                     onSave: ((value) {
-                      provider.updateProductField(id, 'discount', int.parse(value));
+                      provider.updateProductField(
+                          id, 'discount', int.parse(value));
                     }),
                   );
                 },
@@ -85,6 +99,20 @@ class _ProductDetailsPagesState extends State<ProductDetailsPages> {
               'Discount : ${productModel.discount}%',
               style: const TextStyle(fontSize: 18),
             ),
+          ),
+          SwitchListTile(
+            title: const Text('Featured'),
+            value: productModel.featured,
+            onChanged: (value){
+              provider.updateProductField(id, 'featured', value);
+            },
+          ),
+          SwitchListTile(
+            title: const Text('Available'),
+            value: productModel.available,
+            onChanged: (value){
+              provider.updateProductField(id, 'available', value);
+            },
           ),
         ],
       ),
